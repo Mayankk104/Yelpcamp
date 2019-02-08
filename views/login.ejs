@@ -1,0 +1,13 @@
+<% include partials/header %>
+<link rel="stylesheet" href="/style/login.css">
+<% include partials/nevigation %>
+
+<div class='form-container'>
+    <form action="/login" method='POST'>
+        <input class='inputs' name="email" type="text" placeholder="E-mail/number">
+        <input class='inputs' name= 'password' type="password" placeholder="Password">
+        <button class="btn btn-outline-primary">Login</button>
+    </form>
+</div>
+
+<% include partials/footer %>

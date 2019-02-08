@@ -1,68 +1,39 @@
-var express          = require("express"),
-    app              = express(),
-    ejs              = require("ejs"),
-    bodyParser       = require('body-parser'),
-    mongoose         = require('mongoose');
+const express     = require("express"),
+      app         = express(),
+      bodyParser  = require("body-parser"),
+      mongoose    = require('mongoose'),
+      session     = require('express-session'),
+      MongodbStore= require('connect-mongodb-session')(session);
 
+      campGrdRoute= require('./routers/campgrounds-route.js'),
+      loginRoute  = require('./routers/login-route.js');
 
-//var camps          = [{name:"Simla", image:"https://farm2.staticflickr.com/1424/1430198323_c26451b047.jpg"},
-//                        {name:"Ladakh", image:"https://farm4.staticflickr.com/3140/5710228285_e12b762bff.jpg"},
-//                        {name:"Punch", image:"https://farm5.staticflickr.com/4586/38628814451_838ae2b6d6.jpg"}];
+    //      ejs         = require("ejs"),
+    //mongoConnect= require('./database/data');
 
+var store = new MongodbStore({
+    uri: 'mongodb+srv://Mayankk104:MongoMayank@cluster0-itcku.mongodb.net/Yelpcamp',
+    collection: 'sessions'
+})
 
-mongoose.connect("mongodb://localhost/Yelpcamp;");
-app.set("view engine","ejs");
+mongoose.connect('mongodb+srv://Mayankk104:MongoMayank@cluster0-itcku.mongodb.net/Yelpcamp?retryWrites=true');
+app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(__dirname+'/public'));
+app.use(session({secret:"mera jota hai japani", resave: false, saveUninitialized: false, store: store}));
 
+app.get("/",function(req,res){
+res.render('home',{title: 'YelpCamp',isLoggedIn: req.session.isLoggedIn,})
+});
 
-var campgroundSchema = new mongoose.Schema({name: String, image: String}),
-    Campground       = mongoose.model('Campground',campgroundSchema);
+app.use(campGrdRoute.campgroundsRoute);
+app.use(loginRoute.loginRoute);
 
-
-//Campground.create({name:"Punch", image:"https://farm5.staticflickr.com/4586/38628814451_838ae2b6d6.jpg"},function(er,campground)
-//                  {
-//                    if(er)
-//                        {
-//                            console.log('Error');
-//                        }
-//                    else
-//                        {
-//                            console.log(campground);
-//                        }
+//mongoConnect(client => {
+//  console.log(client);
+//  app.listen(3000);
 //});
 
-
-
-app.get("/",function(req, res){
-    res.render('home');
+app.listen(3000, function () {
+    console.log("Server is running");
 });
-
-app.get("/campgrounds", function(req, res){
-    Campground.find({},function(err , camps){
-        if(err)
-            {
-                console.log('ERROR!');
-            }
-        else
-            {
-                res.render('camps',{campgrounds: camps});
-            }
-
-})});
-
-app.get("/campgrounds/new", function(req, res){
-    res.render('new');
-});
-
-app.post('/campgrounds',function(req, res){
-    var name = req.body.name;
-    var image = req.body.image ;
-    var newObject= {name:name , image: image};
-
-    camps.push(newObject);
-    res.redirect('/campgrounds')
-});
-
-
-
-app.listen(3000, function(){console.log("Server is running");});

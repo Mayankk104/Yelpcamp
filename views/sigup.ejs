@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html>
-    <header>
-        <title>YELPCAMP</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    </header>
-
-    <body>
-<h1>Mayank<h1>
-
-    </body>
-</html>
+<% include partials/header %>
+<link rel="stylesheet" href="/style/login.css">
+<% include partials/nevigation %>
+        <div class='form-container'>
+            <form action="/sigup" method='POST'>
+                <input class='inputs' name='email' type="text" placeholder="E-mail/number">
+                <input class='inputs' name='password' type="password" placeholder="Password">
+                <input class='inputs' name='confirmpassword' type="password" placeholder="Confirm Password">
+                <button class="btn btn-outline-primary">Sigup</button>
+            </form>
+        </div>
+<% include partials/footer %>

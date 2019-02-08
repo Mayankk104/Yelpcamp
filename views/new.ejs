@@ -1,18 +1,13 @@
-<! DOCUMENT html>
-<html>
-    <header>
-        <title>
-            New
-        </title>
-    </header>
+<% include partials/header %>
+<link rel="stylesheet" href="/style/new.css">
+<% include partials/nevigation %>
 
-    <body>
-
-        <form action="/campgrounds" method= "POST">
-            <input type="text" name="name" placeholder="Name">
-            <input type="text" name="image" placeholder="URL">
-            <button>Submit</button>
+        <form action="/campgrounds" class="form" method= "POST">
+            <input type="text" class='input' name="name" placeholder="Name">
+            <input type="text" class='input' name="image" placeholder="URL">
+            <textarea type="text" class='input' name="discription" placeholder="discription" rows='8'></textarea>
+            <br>
+            <button class="btn btn-primary btn-dark">Submit</button>
         </form>
 
-    </body>
-</html>
+<% include partials/footer %>
