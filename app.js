@@ -12,7 +12,7 @@ const express     = require("express"),
 
 
 var store = new MongodbStore({
-    uri: 'mongodb+srv://Mayankk104:MongoMayank@cluster0-itcku.mongodb.net/Yelpcamp',
+    uri: 'mongodb+srv://Mayankk104:MongoMayank@cluster0-itcku.mongodb.net/Yelpcamp'||'mongodb://heroku_ssk5f47f:86hdd57le7v38cn6lvlm0i71bo@ds123124.mlab.com:23124/heroku_ssk5f47f',
     collection: 'sessions'
 })
 
@@ -28,10 +28,5 @@ res.render('home',{title: 'YelpCamp',isLoggedIn: req.session.isLoggedIn})
 
 app.use(campGrdRoute.campgroundsRoute);
 app.use(loginRoute.loginRoute);
-
-//mongoConnect(client => {
-//  console.log(client);
-//  app.listen(3000);
-//});
 
 app.listen(process.env.PORT||3000,()=>{console.log("Server is running");});
