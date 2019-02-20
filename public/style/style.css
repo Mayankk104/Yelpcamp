@@ -8,7 +8,7 @@
 {
     text-align: center;
 }
-
-body{
-    background-color: dodgerblue;
+#navbar-nav__button{
+    background-color: rgb(66, 134, 244);
+    border: none;
 }
