@@ -13,7 +13,6 @@ router.post('/campgrounds',(req,res) => {
                 console.log(err);
             }
         else{
-            console.log(camp);
             res.redirect('/campgrounds');
         }
     })
@@ -24,6 +23,7 @@ router.get("/campgrounds",function(req,res){
      if(err){
         console.log('ERROR!');
     }else{
+        console.log(req.session.user);
         res.render('camps',{campgrounds: camps, title: 'Campgrounds', isLoggedIn: req.session.isLoggedIn});
         }
     })

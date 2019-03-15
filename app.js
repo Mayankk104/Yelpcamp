@@ -12,11 +12,11 @@ const express     = require("express"),
 
 
 var store = new MongodbStore({
-    uri: 'mongodb+srv://Mayankk104:MongoMayank@cluster0-itcku.mongodb.net/Yelpcamp'||'mongodb://heroku_ssk5f47f:86hdd57le7v38cn6lvlm0i71bo@ds123124.mlab.com:23124/heroku_ssk5f47f',
+    uri: 'mongodb+srv://Mayankk104:MongoMayank@cluster0-itcku.mongodb.net/Yelpcamp'||procrss.env.MONGODB_URI,
     collection: 'sessions'
 })
 
-mongoose.connect('mongodb+srv://Mayankk104:MongoMayank@cluster0-itcku.mongodb.net/Yelpcamp?retryWrites=true' ||'mongodb://heroku_ssk5f47f:86hdd57le7v38cn6lvlm0i71bo@ds123124.mlab.com:23124/heroku_ssk5f47f');
+mongoose.connect('mongodb+srv://Mayankk104:MongoMayank@cluster0-itcku.mongodb.net/Yelpcamp?retryWrites=true' ||procrss.env.MONGODB_URI);
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname+'/public'));
