@@ -1,44 +1,49 @@
 <% include partials/header %>
 <link rel="stylesheet" href="/style/campinfo.css">
-<link rel="stylesheet" type="text/css" href="Assets\css\fontawesome-free-5.3.1-web\css\all.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <% include partials/nevigation %>
 
   <div class="container">
-       <div class=" row ">
-           <div class="col-sm-2 container2">
-              <div class="container">
-                   <p>SOmething is on the way</p>
-              </div>
+    <div class="row">
+      <div class="col-sm-3">
+        <p>SOmething is on the way</p>
+      </div>
+      
+      <div class="col-sm-9">
+        <div class= 'info'>
+          <img class="info__img"src="<%=camp.image%>" alt="img">
+          <div class="info-details">
+            <h3 class="info__title"><%=title.toUpperCase()%></h3>
+            <h5 class="info__price">5$/night</h5>
+            <p><%=camp.discription%></p>
+          </div>
+        
+        </div>
+        
+        <div class="comment-section">
+          <% camp.comment.forEach(function(campcomment){%>
+            <div class="comments">
+              <p><strong><%=campcomment.author%></strong>: <%=campcomment.text%></p>
+              <form action="/campgrounds/<%=camp._id%>?_method=DELETE" method="POST"><input type="hidden" value="<%=campcomment._id%>" name="id"><input type="hidden" value="<%=camp._id%>" name="campid"><button class="btn btn-danger btn-danger__low-padding"><i class="fas fa-trash"></i></button></form> 
             </div>
+          <%})%>
+  
+          <% if(isLoggedIn){ %>
+            <form action="/campgrounds/<%=camp.id%>" method="POST">
+              <textarea class="comments__textarea" name="comment[text]" id="comment" cols="110" rows="4"></textarea>
+              <input type="hidden" name="comment[author]" value='<%= user%>'>
+              <p><button class='btn btn-success' type="submit">Submit</button></p>
+            </form>
+            <% } %>
+        </div>
 
-            <div class="col-sm-10">
-                <div class="container">
-                      <div class= 'thumbnail'>
-                          <h1><%=camp.name%></h1>
-                          <img src="<%=camp.image%>" alt="img">
-                          <p class= 'discription'><%=camp.discription%></p>
-                      </div>
-                      <div class='thumbnail'>
-                          <% camp.comment.forEach(function(campcomment){%>
-                          <p><strong><%=campcomment.author%></strong>: <%=campcomment.text%></p>
-                          <button class="btn btn-danger"><img src= "/image/art-and-design.svg" ></button>
+        </div>
+      </div>
 
-                          <%})%>
-
-                          <% if(isLoggedIn){ %>
-                            <form action="/campgrounds/<%=camp.id%>" method="POST">
-                                <textarea name="comment[text]" id="" cols="40" rows="4"></textarea>
-                                <input type="hidden" name="comment[author]" value='<%= user%>'>
-                                <p><button class='btn btn-success'>Submit</button></p>
-                            </form>
-                            <% } %>
-                      </div>
-
-               </div>
-            </div>
-
-       </div>
+    </div>
   </div>
 
 
+<% include partials/scripts %>
+<script src="/js/main.js"></script>
 <% include partials/footer %>

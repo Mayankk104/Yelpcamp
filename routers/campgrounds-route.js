@@ -23,7 +23,6 @@ router.get("/campgrounds",function(req,res){
      if(err){
         console.log('ERROR!');
     }else{
-        console.log(req.session.user);
         res.render('camps',{campgrounds: camps, title: 'Campgrounds', isLoggedIn: req.session.isLoggedIn});
         }
     })
@@ -40,7 +39,6 @@ router.get('/campgrounds/:id', function (req, res) {
             console.log(err);
             res.send('<h1>404 Error! page not found</h1>')
         }else{
-            console.log(req.session.user);
             if(req.session.user){
                 res.render('campinfo',{
                 camp: campinfo,
@@ -70,7 +68,7 @@ Comment.create(req.body.comment,function(err,commentFormform){
             if(err){
                 console.log(err);
             }else{
-                camp.comment.push(commentFormform);
+                camp.comment.push(commentFormform._id);
                 camp.save();
                 res.redirect('/campgrounds/'+req.params.id);
                  }
@@ -79,5 +77,16 @@ Comment.create(req.body.comment,function(err,commentFormform){
     }}
 )});
 
+router.delete('/campgrounds/:id',(req,res)=>{
+    console.log(req.body)
+    Comment.findByIdAndDelete(req.body.id)
+    .then(comment=>{
+        var strg = req.body.campid;
+        console.log(strg)
+    })
+    .catch(
+        res.redirect('/campgrounds/'+req.body.campid)
+    )
+})
 
 module.exports.campgroundsRoute = router;

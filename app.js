@@ -1,23 +1,24 @@
-const express     = require("express"),
-      app         = express(),
-      bodyParser  = require("body-parser"),
-      mongoose    = require('mongoose'),
-	//   dotenv	  = require('dotenv').config(),
-      session     = require('express-session'),
-      MongodbStore= require('connect-mongodb-session')(session),
+const express           = require("express"),
+      app               = express(),
+      bodyParser        = require("body-parser"),
+      mongoose          = require('mongoose'),
+	//   dotenv	      = require('dotenv').config(),
+      session           = require('express-session'),
+      methodOverRide    = require('method-override')
+      MongodbStore      = require('connect-mongodb-session')(session),
 
-      campGrdRoute= require('./routers/campgrounds-route.js'),
-      Session     = require('./models/sessions'),
-      loginRoute  = require('./routers/login-route.js');
+      campGrdRoute      = require('./routers/campgrounds-route.js'),
+      Session           = require('./models/sessions'),
+      loginRoute        = require('./routers/login-route.js');
 
-	console.log(process.env.MONGODB_URI)
 
 var store = new MongodbStore({
     uri: process.env.MONGODB_URI,
     collection: 'sessions'
 })
 
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI,{useNewUrlParser:true});
+app.use(methodOverRide('_method'))
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname+'/public'));
