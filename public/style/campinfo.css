@@ -1,30 +1,44 @@
-img{
-    width:60%;
-    margin: 10px;
+.info{
+    background-color: #eaeaea;
+    margin-top: 15px;
+}
+.info__img{
+    width:100%;
+}
+.info__title{
+    display: inline-block;
+}
+.info__price{
+    display: inline;
+    float: right;
+}
+.info-details{
+    padding: 10px
 }
 
-.thumbnail{
-    background-color: #eaeaea;
-    padding: 10px;
-    margin-bottom: 20px;
+.comment-section{
+    background-color: #ddd9d940;
+    margin: 15px 0;
+    padding: 0 10px ;
 }
-h1{
-    margin-left: 8px;
+
+.btn-danger__low-padding{
+    padding: 0 5px;
+    transform: scale(0.8);
 }
-.container{
-     margin-bottom: 20px;
+.comments{
+    margin-bottom: 10px;
+    /* border: 1px solid #ccc; */
+    padding: 5px;
 }
-.container2{
-    background-color: antiquewhite;
+.comments p{
+    margin-bottom: 2px;
 }
-.discription{
-    margin-left: 15px;
-    font-family:cursive;
+.comments__textarea{
+    background: none;
+    outline: none;
+    resize: none;
 }
-.deleteicon{
-    padding: 1px;
-}
-.btn{
-    width: 5px;
-    height: 5px;
+.comments__textarea:focus{
+    background-color: aliceblue;
 }
