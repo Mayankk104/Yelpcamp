@@ -50,7 +50,8 @@ router.get('/campgrounds/:id', function (req, res) {
                 res.render('campinfo',{
                 camp: campinfo,
                 title: campinfo.name,
-                isLoggedIn:false
+                isLoggedIn:false,
+                user:''
                 })
 
             }

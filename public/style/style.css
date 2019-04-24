@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 .camps
 {
     width: 30%;
@@ -8,7 +11,13 @@
 {
     text-align: center;
 }
-#navbar-nav__button{
-    background-color: rgb(66, 134, 244);
+.logout{
+    background: none;
     border: none;
+    font-family: inherit;
+    color: #ffffff80;
 }
+.logout:hover{
+    color: #ffffffbf;
+}
+

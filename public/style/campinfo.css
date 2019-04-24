@@ -16,6 +16,21 @@
     padding: 10px
 }
 
+.container__low-padding{
+    margin: 0;
+    max-width: 100%;
+    padding: 0 15px;
+}
+
+#map{
+    width: 100%;
+    height: 300px;
+}
+
+.col-sm-3__noSidePadding{
+    padding:15px 0;
+}
+
 .comment-section{
     background-color: #ddd9d940;
     margin: 15px 0;
@@ -33,6 +48,11 @@
 }
 .comments p{
     margin-bottom: 2px;
+    display: inline-block;
+}
+.comments form{
+    display: inline;
+    float: right;
 }
 .comments__textarea{
     background: none;
