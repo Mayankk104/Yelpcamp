@@ -9,6 +9,9 @@ var campgroundSchema = new mongoose.Schema({
     comment: [{
         type: mongoose.Schema.ObjectId,
         ref: "Comment"
-    }]
+    }],
+    location: String,
+    lat:Number,
+    lng:Number
 });
 module.exports = mongoose.model('Campground', campgroundSchema);

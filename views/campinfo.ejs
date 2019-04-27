@@ -6,20 +6,20 @@
   <div class="container container__low-padding">
     <div class="row">
       <div class="col-sm-4 col-sm-3__noSidePadding">
-        <div id="map">
-        </div>
+        <div id="map"></div>
         <input type="text" id="search" placeholder="Search Locations..." class="form-controll">
       </div>
-      
+    
       <div class="col-sm-8">
         <div class= 'info'>
+          <input type="hidden"id='lat' value='<%=camp.lat%>'>
+          <input type="hidden"id="lng" value='<%=camp.lng%>'>
           <img class="info__img"src="<%=camp.image%>" alt="img">
           <div class="info-details">
             <h3 class="info__title"><%=title.toUpperCase()%></h3>
             <h5 class="info__price">5$/night</h5>
             <p><%=camp.discription%></p>
-          </div>
-        
+          </div>        
         </div>
         
         <div class="comment-section">
@@ -38,17 +38,16 @@
               <input type="hidden" name="comment[author]" value='<%= user%>'>
               <p><button class='btn btn-success' type="submit">Submit</button></p>
             </form>
-            <% } %>
+          <% } %>
         </div>
 
-        </div>
+       </div>
       </div>
-
     </div>
   </div>
 
 
   <% include partials/scripts %>
   <script src="/js/main.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?callback=createMap&libraries=plasces&key=AIzaSyCE3rYroirJJyy5pRSaPsI5LB8tjfd8bjY"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?callback=createMap&key=AIzaSyCE3rYroirJJyy5pRSaPsI5LB8tjfd8bjY"></script>
 <% include partials/footer %>

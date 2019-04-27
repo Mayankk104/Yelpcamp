@@ -62,3 +62,11 @@
 .comments__textarea:focus{
     background-color: aliceblue;
 }
+
+
+.lat{
+    display: none;
+}
+.lng{
+    display: none;
+}
