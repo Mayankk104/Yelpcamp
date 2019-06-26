@@ -4,6 +4,10 @@
     margin: 0 auto;
     margin-top: 50px;
 }
+
+h3{
+    padding-top: 100px;
+}
 .input{
     width: 100%;
     padding: 3px;

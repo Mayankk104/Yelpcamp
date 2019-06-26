@@ -96,6 +96,16 @@
 }
 .info-details h3{
     text-transform: capitalize;
+    display: inline-block;
+}
+.info-details h5{
+    display: inline-block;
+    float: right;
+    margin-right: 5px;
+}
+
+.info-details p{
+    margin-top: 15px;
 }
 
 .row{

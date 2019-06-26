@@ -21,16 +21,16 @@
             <% if(!isLoggedIn){%>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/login">login</a>
+                        <a class="nav-link" href="/login">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/sigup">sign up</a>
+                        <a class="nav-link" href="/sigup">Sign up</a>
                     </li>
                 </ul>
             <% }else{ %>
                   <ul class="navbar-nav">
                     <li class="nav-item">
-                        <form action="/logout" method="POST"><button class="logout">logout</button></form>
+                        <form action="/logout" method="POST"><button class="logout">Logout</button></form>
                     </li>
                 </ul>
                 <%}%>
