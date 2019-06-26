@@ -99,3 +99,7 @@
 .row{
     margin: 0;
 }
+
+.row__modified{
+    padding-top: 90px;
+}
