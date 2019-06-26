@@ -73,11 +73,13 @@
     border-radius: 0px;
     text-align: left;
 }
-
 .btn-toggel:focus{
     box-shadow: none;    
 }
 
+.card{
+    border: 1px solid #128192;
+}
 
 #map{
     width: 100%;
@@ -99,7 +101,6 @@
 .row{
     margin: 0;
 }
-
 .row__modified{
     padding-top: 90px;
 }
