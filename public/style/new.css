@@ -1,11 +1,12 @@
 .form{
     max-width: 600px;
-    width: 80%;
+    width: 40%;
     margin: 0 auto;
     margin-top: 50px;
 }
 .input{
-    width: 80%;
+    width: 100%;
+    padding: 3px;
     border-radius: 2px;
     border: 1px solid gray;
     margin: 3px;

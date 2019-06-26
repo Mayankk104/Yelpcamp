@@ -2,14 +2,14 @@ const express           = require("express"),
       app               = express(),
       bodyParser        = require("body-parser"),
       mongoose          = require('mongoose'),
-      //sdotenv		= require('dotenv').config(),
+      dotenv		    = require('dotenv').config(),
       session           = require('express-session'),
       methodOverRide    = require('method-override')
       MongodbStore      = require('connect-mongodb-session')(session),
 
-      campGrdRoute      = require('./routers/campgrounds-route.js'),
+      campGrdRoute      = require('./routes/campgrounds-route.js'),
       Session           = require('./models/sessions'),
-      loginRoute        = require('./routers/login-route.js');
+      loginRoute        = require('./routes/login-route.js');
 
 
 var store = new MongodbStore({

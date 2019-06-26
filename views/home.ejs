@@ -1,17 +1,25 @@
 <% include partials/header %>
-<% include partials/nevigation %>
+<link rel="stylesheet" href="/style/home.css">
+<!-- <% include partials/nevigation %> -->
 
-
-
-    <div class="jumbotron container jumbotron-fluid">
-        <div class="container">
-            <h1>WLECOME! to yelpcamp</h1>
-            <p>see a bunch of capms there</p>
-            <a href="/campgrounds"><button type="button" class="btn btn-primary btn-lg">camps</button></a>
-            <input type="text" id="search" placeholder="Search Locations..." class="form-controll">
-
+        <div class="leading-header">
+            <div class="leading-header__cover">
+                <h1>Welcome To Yelpcamp!</h1>
+                <p>see a bunch of capms there</p>
+                <a href="/campgrounds" class="btn btn-transparent btn-lg">
+                    Campgrounds
+                </a>
+            </div>
         </div>
+
+        <ul class="slider">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
     </div>
 
-
+<% include partials/scripts %>
 <% include partials/footer %>

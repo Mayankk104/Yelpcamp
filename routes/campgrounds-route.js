@@ -2,33 +2,14 @@ const express       = require('express'),
       router        = express.Router(),
       nodeGeocoder  = require('node-geocoder')
 
-  Campground  = require('../models/campgrounds'),
-     Comment  = require('../models/comments'),
-      isAuth  = require('./isAuth')
+      Campground    = require('../models/campgrounds'),
+      Comment       = require('../models/comments'),
+      isAuth        = require('./isAuth'),
+
+      campgroundsControllers  = require('../controllers/camps')
 
 
-router.post('/campgrounds',(req,res) => {
-    var gercoder = nodeGeocoder({provider: 'google',httpAdapter:'https',apiKey:process.env.GEOCODING_API_KEY,formatter:null})
-    gercoder.geocode(req.body.location)
-    .then(data=>{
-        var lat = data[0].latitude;
-        var lng = data[0].longitude;
-        var location = data[0].formattedAddress;
-        Campground.create({...req.body,location:location,lat:lat,lng:lng},(err,camp)=>{
-            if(err)
-                {
-                    console.log(err);
-                }
-            else{
-                res.redirect('/campgrounds');
-            }
-        })
-    })
-    .catch(err=>{
-        console.log(err)
-        return res.redirect('/')
-    })
-})
+router.post('/campgrounds',campgroundsControllers.createCamp)
 
 router.get("/campgrounds",function(req,res){
  Campground.find({},function(err,camps){

@@ -1,10 +1,9 @@
 <% include partials/header %>
 <link rel="stylesheet" href="/style/camp.css">
-<% include partials/nevigation %>
-
-<div class="container">
-    <div class="jumbotron">
-        <h1>WLECOME to YelpCamp!</h1>
+<div>
+    <% include partials/nevigation %>
+    <div class="jumbotron jumbotron-img">
+        <h1 class='pt-5'>Welcome To Yelpcamp!</h1>
         <p>see a bunch of capms from around the world there</p>
         <a href="/campgrounds/new"><button class="btn btn-primary">Add camps</button></a>
     </div>
@@ -27,4 +26,5 @@
 
 
 
+<% include ./partials/scripts %>
 <% include ./partials/footer %>

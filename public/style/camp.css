@@ -5,6 +5,15 @@
 img{
     width: 100%;
 }
+
+.jumbotron-img{
+    background-image: url('http://www.teavalleyresort.com/assets/images/adventure_activities/tent-camping-big.jpg');
+    height: 400px;
+    background-size: cover;
+    background-repeat: repeat-x;
+    color: #ccc;
+}
+
 .thumbnail{
     border: 1px solid #ccc;
     margin: 0 5px;

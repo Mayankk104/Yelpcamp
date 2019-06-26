@@ -1,8 +1,17 @@
-.form-container{
+/* .form-container{
     max-width: 400px;
         width: 80%;
        margin: 0 auto;
     margin-top: 20px;
+} */
+
+.form{
+    max-width: 500px;
+    display: block;
+    width: 95%;
+    position: absolute;
+    padding-top: 40vh;
+    margin: auto;
 }
 
 .inputs{
