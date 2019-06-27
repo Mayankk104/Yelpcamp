@@ -13,7 +13,8 @@ exports.createCamp = (req,res) => {
     var lat = 28.6841;
     var lng = 77.0633;
     var location = 'Nangloi,Delhi-110041';
-    Campground.create({...req.body,location:location,lat:lat,lng:lng})
+    
+    Campground.create({...req.body,createdOn: +req.body.createdOn,location:location,lat:lat,lng:lng})
     .then(camp=>{
         res.redirect('/campgrounds')
     })

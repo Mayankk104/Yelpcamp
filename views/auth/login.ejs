@@ -1,0 +1,17 @@
+<% include ../partials/header %>
+<link rel="stylesheet" href="/style/login.css">
+<% include ../partials/nevigation %>
+
+<div class='form'>
+    <form action="/login" method='POST'>
+        <%if(errorMessage){%>
+            <p><%=errorMessage%></p>
+        <%}%>
+        <input value="<%=errorMessage? email:''%>" class='inputs' name='email' type='email' placeholder="E-mail">
+        <input value="<%=errorMessage? password:''%>" class='inputs' name='password' type="password" placeholder="Password">
+        <button class="btn btn-outline-primary">Login</button>
+    </form>
+</div>
+
+<% include ../partials/scripts %>
+<% include ../partials/footer %>

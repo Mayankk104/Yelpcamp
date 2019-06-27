@@ -3,49 +3,6 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <% include partials/nevigation %>
 
-  <!-- <div class="container container__low-padding"> -->
-    <!-- <div class="row"> -->
-      <!-- <div class="col-sm-4 col-sm-3__noSidePadding"> -->
-        <!-- <div id="map"></div> -->
-      <!-- </div> -->
-    
-      <!-- <div class="col-sm-8"> -->
-        <!-- <div class= 'info'>
-          <input type="hidden"id='lat' value='<%=camp.lat%>'>
-          <input type="hidden"id="lng" value='<%=camp.lng%>'>
-          <img class="info__img"src="<%=camp.image%>" alt="img">
-          <div class="info-details">
-            <h3 class="info__title"><%=title%></h3>
-            <h5 class="info__price">5$/night</h5>
-            <p><%=camp.discription%></p>
-          </div>        
-        </div> -->
-        
-        <!-- <div class="comment-section"> -->
-          <!-- <% camp.comment.forEach(function(campcomment){%> -->
-            <!-- <div class="comments"> -->
-              <!-- <p><strong><%=campcomment.author.split("@")[0]%></strong>: <%=campcomment.text%></p>
-              <%if(campcomment.author===user){%>
-              <form action="/campgrounds/<%=camp._id%>?_method=DELETE" method="POST"><input type="hidden" value="<%=campcomment._id%>" name="id"><input type="hidden" value="<%=camp._id%>" name="campid"><button class="btn btn-danger btn-danger__low-padding"><i class="fas fa-trash"></i></button></form> 
-              <%}%> -->
-            <!-- </div> -->
-          <!-- <%})%> -->
-  
-          <!-- <% if(isLoggedIn){ %>
-            <form action="/campgrounds/<%=camp.id%>" method="POST">
-              <textarea class="comments__textarea" name="comment[text]" id="comment" cols="80" rows="4"></textarea>
-              <input type="hidden" name="comment[author]" value='<%= user%>'>
-              <p><button class='btn btn-success' type="submit">Submit</button></p>
-            </form>
-          <% } %> -->
-        <!-- </div> -->
-
-       <!-- </div>
-      </div>
-    </div>
-  </div> -->
-
-
   <div class="row row__modified">
     <div class="col-md-4">
 
@@ -91,6 +48,8 @@
               <h3 class="info__title"><%=title%></h3>
               <h5 class="info__price">5$/night</h5>
               <p><%=camp.discription%></p>
+
+              <p>created by <%=camp.creator%> <%=createdOn%></p>
             </div>        
         </div>
       

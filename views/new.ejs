@@ -8,6 +8,9 @@
             <input type="text" class='input' name="image" placeholder="URL">
             <textarea type="text" class='input' name="discription" placeholder="discription" rows='8'></textarea>
             <input type="text" name="location" class='input' id="location" placeholder="location">
+            <input type="hidden" value = "<%=creator%>" name="creator"/>
+            <input type="hidden" value = "<%=createdOn%>" name="createdOn"/>
+
             <br>
             <button class="btn mt-3 btn-dark">Submit</button>
         </form>

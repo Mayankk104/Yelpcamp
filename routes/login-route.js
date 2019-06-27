@@ -1,37 +1,14 @@
 const express = require('express'),
-      bcrypt  = require('bcryptjs')
-      router  = express.Router();
+      bcrypt  = require('bcryptjs'),
+      router  = express.Router(),
+      authController = require('../controllers/auth')
 
 var   User    = require('../models/users')
 
 
-router.get('/login',function(req,res){
+router.get('/login',authController.getLogin)
 
-    //console.log(req.isLoggedIn)
-    res.render('login',{title: "login",isLoggedIn: false});
-})
-
-router.post('/login',(req,res)=>{
-
-    User.findOne({email:req.body.email})
-    .then(user=>{
-        if(user){
-            bcrypt.compare(req.body.password,user.password)
-            .then(domatch =>{
-                if(domatch){
-                    req.session.isLoggedIn=true;
-                    req.session.user= user;
-                    res.redirect('/campgrounds')
-                }else{
-                    res.redirect('/login')
-                }
-            }).catch(err =>{console.log(err)})
-        }else{
-            res.redirect('/login')
-        }
-    })
-        .catch(err =>{console.log(err)})
-})
+router.post('/login',authController.postLogin)
 
 
 router.post('/logout',(req,res)=>{
