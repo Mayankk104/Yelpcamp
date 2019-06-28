@@ -5,11 +5,17 @@
 <div class='form'>
     <form action="/login" method='POST'>
         <%if(errorMessage){%>
-            <p><%=errorMessage%></p>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <%=errorMessage%>
+                <button type="button" class="close m-0" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>    
         <%}%>
+
         <input value="<%=errorMessage? email:''%>" class='inputs' name='email' type='email' placeholder="E-mail">
         <input value="<%=errorMessage? password:''%>" class='inputs' name='password' type="password" placeholder="Password">
-        <button class="btn btn-outline-primary">Login</button>
+        <button class="btn btn-outline-primary m-0">Login</button>
     </form>
 </div>
 

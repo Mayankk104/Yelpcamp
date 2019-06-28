@@ -7,7 +7,6 @@ var   User    = require('../models/users')
 
 
 router.get('/login',authController.getLogin)
-
 router.post('/login',authController.postLogin)
 
 
@@ -18,7 +17,7 @@ router.post('/logout',(req,res)=>{
 })
 
 router.get('/sigup',(req,res)=>{
-    res.render('sigup',{title: 'Sigup', isLoggedIn: false})
+    res.render('auth/sigup',{title: 'Sigup', isLoggedIn: false})
 })
 
 
