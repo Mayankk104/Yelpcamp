@@ -1,6 +1,7 @@
 .infocontainer{
     text-align: center;
     padding: 2px;
+    border: 1px solid #ccc;
 }
 img{
     width: 100%;
@@ -18,15 +19,15 @@ img{
     border: 1px solid #ccc;
     margin: 0 5px;
 }
-.col-sm-6__modifiy{
+/* .col-sm-6__modifiy{
     max-width:24%;
     padding: 0;
     margin: 0.5%;
     border: 1px solid #ccc;
-}
-.col-sm-6__modifiy:hover{
+}*/
+.infocontainer:hover{
     box-shadow: 2px 1px 10px #888888;
-}
+} 
 
 .thumbnail:hover{
     box-shadow: 2px 0px 6px 0px rgba(0,0,0,0.25);

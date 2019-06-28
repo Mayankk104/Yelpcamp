@@ -30,6 +30,7 @@ body{
 
 .leading-header h1{ 
     color: #fff;
+    font-size: 4.5rem;
 }
 
 .leading-header p{
@@ -61,7 +62,7 @@ body{
 
 
 .slider li:nth-child(1){
-    background-image: url('/image/home_3.jpg');
+    background-image: url('/image/mobi_home_3.jpg');
 }
 .slider li:nth-child(2){
     background-image: url('/image/home_5.jpg');
@@ -72,12 +73,40 @@ body{
     animation-delay: 20s;
 }
 .slider li:nth-child(4){
-    background-image: url('/image/home_2.jpg');
+    background-image: url('/image/mobi_home_2.jpg');
     animation-delay: 30s;   
 }
 .slider li:nth-child(5){
-    background-image: url('/image/home_1.jpg');
+    background-image: url('/image/mobi_home_1.jpg');
     animation-delay: 40s;
+}
+
+@media(min-width:768px){
+    .slider li:nth-child(1){
+        background-image: url('/image/home_3.jpg');
+    }
+    .slider li:nth-child(2){
+        background-image: url('/image/home_5.jpg');
+        animation-delay: 10s
+    }
+    .slider li:nth-child(3){
+        background-image: url('/image/home_4.jpg');
+        animation-delay: 20s;
+    }
+    .slider li:nth-child(4){
+        background-image: url('/image/home_2.jpg');
+        animation-delay: 30s;   
+    }
+    .slider li:nth-child(5){
+        background-image: url('/image/home_1.jpg');
+        animation-delay: 40s;
+    }
+}
+
+@media(min-width:768px){
+    .leading-header h1{
+        font-size: 2.5rem;
+    }
 }
 
 @keyframes slideImage{
