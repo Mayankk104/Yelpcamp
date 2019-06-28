@@ -13,11 +13,11 @@ const express           = require("express"),
 
 
 var store = new MongodbStore({
-    uri: process.env.MONGODB_URL,
+    uri: process.env.MONGODB_URI,
     collection: 'sessions'
 })
 
-mongoose.connect(process.env.MONGODB_URL,{useNewUrlParser:true});
+mongoose.connect(process.env.MONGODB_URI,{useNewUrlParser:true});
 app.use(methodOverRide('_method'))
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
