@@ -1,19 +1,19 @@
-<% include partials/header %>
-<link rel="stylesheet" href="/style/new.css">
-<% include partials/nevigation %>
+<%- include('partials/header') %>
+    <link rel="stylesheet" href="/style/new.css">
+<%- include('partials/navigation') %>
 
     <h3 class='text-center'>Add A New Campground</h3>
-        <form action="/campgrounds" class="form" method= "POST">
-            <input type="text" class='input' name="name" placeholder="Name">
-            <input type="text" class='input' name="image" placeholder="URL">
-            <textarea type="text" class='input' name="discription" placeholder="discription" rows='8'></textarea>
-            <input type="text" name="location" class='input' id="location" placeholder="location">
-            <input type="hidden" value = "<%=creator%>" name="creator"/>
-            <input type="hidden" value = "<%=createdOn%>" name="createdOn"/>
+    <form action="/campgrounds" class="form" method= "POST">
+        <input type="text" class='input' name="name" placeholder="Name">
+        <input type="text" class='input' name="image" placeholder="URL">
+        <textarea type="text" class='input' name="discription" placeholder="discription" rows='8'></textarea>
+        <input type="text" name="location" class='input' id="location" placeholder="location">
+        <input type="hidden" value = "<%=creator%>" name="creator"/>
+        <input type="hidden" value = "<%=createdOn%>" name="createdOn"/>
 
-            <br>
-            <button class="btn mt-3 btn-dark">Submit</button>
-        </form>
+        <br>
+        <button class="btn mt-3 btn-dark">Submit</button>
+    </form>
 
-<% include partials/scripts %>
-<% include partials/footer %>
+<% include('partials/scripts') %>
+<% include('partials/footer') %>

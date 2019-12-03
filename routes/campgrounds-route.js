@@ -29,7 +29,7 @@ router.get("/campgrounds/new",isAuth,(req,res)=>{
     res.render('new',{
         title: 'New Camp',
         isLoggedIn: req.session.isLoggedIn,
-        creator: req.session.name,
+        creator: req.session.user.username,
         createdOn: now
     });
 });
@@ -40,7 +40,6 @@ router.get('/campgrounds/:id', function (req, res) {
             console.log(err);
             res.send('<h1>404 Error! page not found</h1>')
         }else{
-            console.log(campinfo)
             if(req.session.user){
                 res.render('campinfo',{
                 camp: campinfo,
@@ -53,6 +52,7 @@ router.get('/campgrounds/:id', function (req, res) {
                 res.render('campinfo',{
                 camp: campinfo,
                 title: campinfo.name,
+                createdOn: moment(+campinfo.createdOn).fromNow(),
                 isLoggedIn:false,
                 user:''
                 })
@@ -71,7 +71,8 @@ Comment.create(req.body.comment,function(err,commentFormform){
                 console.log(err);
             }else{
                 camp.comment.push(commentFormform._id);
-                camp.save();
+                cam
+                p.save();
                 res.redirect('/campgrounds/'+req.params.id);
                  }
             }

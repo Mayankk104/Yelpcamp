@@ -1,7 +1,8 @@
-<% include partials/header %>
-<link rel="stylesheet" href="/style/camp.css">
+<%- include('partials/header') %>
+    <link rel="stylesheet" href="/style/camp.css">
+<%- include('partials/navigation') %>
+
 <div>
-    <% include partials/nevigation %>
     <div class="jumbotron jumbotron-img">
         <h1 class='pt-5'>Welcome To Yelpcamp!</h1>
         <p>see a bunch of capms from around the world there</p>
@@ -21,10 +22,7 @@
             <% })%>
         </div>
     </div>
-        <!--a href="/"-->
 </div>
 
-
-
-<% include ./partials/scripts %>
-<% include ./partials/footer %>
+<%- include('partials/scripts') %>
+<%- include('partials/footer') %>

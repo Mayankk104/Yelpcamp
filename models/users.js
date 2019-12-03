@@ -21,7 +21,9 @@ const userSchema = mongoose.Schema({
     type      : String,
     required  :true,
     minlength: 6
-  }
+  },
+  camps: [{type: mongoose.Schema.ObjectId,ref: "Campground"}]
+
 });
 
 module.exports = mongoose.model('User',userSchema);

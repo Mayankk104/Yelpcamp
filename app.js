@@ -1,12 +1,11 @@
 const express           = require("express"),
       app               = express(),
-      bodyParser        = require("body-parser"),
+      path              = require('path'),
       mongoose          = require('mongoose'),
-    //   dotenv		    = require('dotenv').config(),
+      dotenv		    = require('dotenv').config(),
       session           = require('express-session'),
-      methodOverRide    = require('method-override')
+      methodOverRide    = require('method-override'),
       MongodbStore      = require('connect-mongodb-session')(session),
-
       campGrdRoute      = require('./routes/campgrounds-route.js'),
       Session           = require('./models/sessions'),
       loginRoute        = require('./routes/login-route.js');
@@ -17,11 +16,11 @@ var store = new MongodbStore({
     collection: 'sessions'
 })
 
-mongoose.connect(process.env.MONGODB_URI,{useNewUrlParser:true});
+mongoose.connect(process.env.MONGODB_URI,{useNewUrlParser:true,useUnifiedTopology:true,useCreateIndex:true});
 app.use(methodOverRide('_method'))
 app.set("view engine", "ejs");
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(__dirname+'/public'));
+app.use(express.urlencoded({extended:true}))
+app.use( express.static( path.join( __dirname , 'public' )));
 app.use(session({secret:"mera jota hai japani", resave: false, saveUninitialized: false,store: store}));
 
 app.get("/",function(req,res){

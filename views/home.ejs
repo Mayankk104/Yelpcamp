@@ -1,25 +1,25 @@
-<% include partials/header %>
-<link rel="stylesheet" href="/style/home.css">
-<!-- <% include partials/nevigation %> -->
+<%- include('partials/header') %>
 
-        <div class="leading-header">
-            <div class="leading-header__cover">
-                <h1>Welcome To Yelpcamp!</h1>
-                <p>see a bunch of capms there</p>
-                <a href="/campgrounds" class="btn btn-transparent btn-lg">
-                    Campgrounds
-                </a>
-            </div>
+    <link rel="stylesheet" href="/style/home.css">
+</head>
+<body>
+
+    <div class="leading-header">
+        <div class="leading-header__cover">
+            <h1>Welcome To Yelpcamp!</h1>
+            <p>see a bunch of capms there</p>
+            <a href="/campgrounds" class="btn btn-transparent btn-lg">
+                Campgrounds
+            </a>
         </div>
-
-        <ul class="slider">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
     </div>
-
-<% include partials/scripts %>
-<% include partials/footer %>
+    <ul class="slider">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    
+<%- include('./partials/scripts') %>
+<%- include('./partials/footer') %>

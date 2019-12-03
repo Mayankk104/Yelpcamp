@@ -31,7 +31,7 @@ router.post('/sigup',(req,res) =>{
                     }else {
                          var password= bcrypt.hashSync(req.body.password,1)
                          console.log(req.body.email,password)
-                        User.create({email:req.body.email,password:password},(err,user)=>{
+                        User.create({email:req.body.email,password:password,username:req.body.email.split("@")[0]},(err,user)=>{
                         res.redirect('/login');
                         });
                     }
